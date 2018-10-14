@@ -19,15 +19,34 @@ isa[*] (<lib>) <sym>       Show address of symbol
 ic <class>                 List Objective-C classes or methods of <class>
 ip <protocol>              List Objective-C protocols or methods of <protocol>
 ```
-- \il
-- \iE (lib): List exports of library(ies)
+- `\i`: Shows targer information
+```java
+[0x00000000]> \i
+arch  arm
+bits  64
+os  linux
+pid  14473
+uid  10127
+objc  false
+java  true
+cylang  false
+```
+- `\i*`: Shows target information in r2 form
+```java
+[0x00000000]> \i*
+e asm.arch=arm
+e asm.bits=64
+e asm.os=linux
+```
+- `\il`
+- `\iE (lib)`: List exports of library(ies)
 ```java
 [0xd0d77878]> \iE* frida-agent-32.so
 f sym.fun.frida_agent_main = 0xd671a2cd
 f sym.var.FRIDA_AGENT_1.0 = 0x0
 ```
 
-- \ii (lib): List imports of library(ies)
+- `\ii (lib)`: List imports of library(ies)
 ```java
 [0xd0d77878]> \ii frida-agent-32.so~open
 0xeeb94eb9 f opendir /system/lib/libc.so
