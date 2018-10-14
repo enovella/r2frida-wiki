@@ -128,6 +128,63 @@ f sym.fun.SSL_CIPHER_is_AES128CBC = 0x7f9307afa8
 /w[j] string               Search wide string
 /v[1248][j] value          Search for a value honoring `e cfg.bigendian` of given width
 ```
+- `\/ keyword`: Search hex/string pattern in memory ranges (see search.in=?)
+```java
+[0x00000000]> \/ rooted
+...
+Searching 6 bytes in [0x0000007f95e1a000-0x0000007f95ebb000]
+...
+Searching 6 bytes in [0x0000007fc74a5000-0x0000007fc7ca4000]
+hits: 9
+0x7f595ec8e7 hit1_0 rootediso8601DateFormatissuerAccessCodeissuerActionCod
+0x7f5e8aceb5 hit1_1 rooted devices for data security reasons.:Operation excepti
+0x7f69566fa9 hit1_2 rooted?EECan not capture your card details, NFC feature is 
+0x7f6956f976 hit1_3 rooted or jailbroken. This is an added security measure to p
+0x7f695763ac hit1_4 rooted to keep your details safemada Pay utilizes the m
+0x7f69583dca hit1_5 rooted).T      
+0x7f6958dc30 hit1_6 rooted or jailbroken.Z    
+0x7f6958e011 hit1_7 rooted).      
+0x7f6991d8e7 hit1_8 rootediso8601DateFormatissuerAccessCodeissuerActionCod
+```
+Search string `keyword` and output in JSON format:
+```java
+[0x00000000]> \/j rooted
+Searching 6 bytes in [0x0000007f95ebe000-0x0000007f95ebf000]
+...
+Searching 6 bytes in [0x0000007fc74a5000-0x0000007fc7ca4000]
+hits: 9
+[{"address":"0x7f595ec8e7","size":6,"flag":"hit2_0","content":"rootediso8601DateFormatissuerAccessCodeissuerActionCod"},{"address":"0x7f5e8aceb5","size":6,"flag":"hit2_1","content":"rooted devices for data security reasons.:Operation excepti"},{"address":"0x7f69566fa9","size":6,"flag":"hit2_2","content":"rooted?EECan not capture your card details, NFC feature is "},{"address":"0x7f6956f976","size":6,"flag":"hit2_3","content":"rooted or jailbroken. This is an added security measure to p"},{"address":"0x7f695763ac","size":6,"flag":"hit2_4","content":"rooted to keep your details safemada Pay utilizes the m"},{"address":"0x7f69583dca","size":6,"flag":"hit2_5","content":"rooted).T      "},{"address":"0x7f6958dc30","size":6,"flag":"hit2_6","content":"rooted or jailbroken.Z    "},{"address":"0x7f6958e011","size":6,"flag":"hit2_7","content":"rooted).      "},{"address":"0x7f6991d8e7","size":6,"flag":"hit2_8","content":"rootediso8601DateFormatissuerAccessCodeissuerActionCod"}]
+```
+Search hex string:
+```java
+[0x00000000]> \/x c0ffee
+Searching 3 bytes in [0x0000007f95ebf000-0x0000007f95ec2000]
+...
+Searching 3 bytes in [0x0000007fc74a5000-0x0000007fc7ca4000]
+hits: 7
+0x71100090 hit3_0 c0ffee
+0x719a104c hit3_1 c0ffee
+0x7f59df54ec hit3_2 c0ffee
+0x7f5bfaf4ec hit3_3 c0ffee
+0x7f6141bb52 hit3_4 c0ffee
+0x7f61e7de68 hit3_5 c0ffee
+0x7f87c07623 hit3_6 c0ffee
+```
+Search hex string and outputs in JSON format:
+```java
+[0x00000000]> \/xj c0ffee
+Searching 3 bytes in [0x0000007f95ebe000-0x0000007f95ebf000]
+Searching 3 bytes in [0x0000007f95ebf000-0x0000007f95ec2000]
+Searching 3 bytes in [0x0000007f95ec2000-0x0000007f95ec3000]
+Searching 3 bytes in [0x0000007f95ec3000-0x0000007f95ec6000]
+Searching 3 bytes in [0x0000007fc74a5000-0x0000007fc7ca4000]
+hits: 7
+[{"address":"0x71100090","size":3,"flag":"hit4_0","content":"c0ffee"},{"address":"0x719a104c","size":3,"flag":"hit4_1","content":"c0ffee"},{"address":"0x7f59df54ec","size":3,"flag":"hit4_2","content":"c0ffee"},{"address":"0x7f5bfaf4ec","size":3,"flag":"hit4_3","content":"c0ffee"},{"address":"0x7f6141bb52","size":3,"flag":"hit4_4","content":"c0ffee"},{"address":"0x7f61e7de68","size":3,"flag":"hit4_5","content":"c0ffee"},{"address":"0x7f87c07623","size":3,"flag":"hit4_6","content":"c0ffee"}]
+```
+Search value `v` from a given width in bytes `[1248]`:
+```java
+[0x00000000]> \/v4 1337
+```
 
 ## Dynamic/Debugging commands (`\d`)
 ```java
