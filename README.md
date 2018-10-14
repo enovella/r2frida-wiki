@@ -188,16 +188,19 @@ e stalker.in=raw
 ```
 ## Environment variables
 - `\env`: Get/set environment variable
+
 Set env variable:
 ```java
 [0x00000000]> \env LD_PRELOAD=/data/local/tmp/libhook.so
 LD_PRELOAD=/data/local/tmp/libhook.so
 ```
+
 Get env variable:
 ```java
 [0x00000000]> \env LD_PRELOAD
 LD_PRELOAD=/data/local/tmp/libhook.so
 ```
+
 List all variables:
 ```java
 [0x00000000]> \env
