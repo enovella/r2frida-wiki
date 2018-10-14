@@ -19,7 +19,7 @@ isa[*] (<lib>) <sym>       Show address of symbol
 ic <class>                 List Objective-C classes or methods of <class>
 ip <protocol>              List Objective-C protocols or methods of <protocol>
 ```
-- `\i`: Shows targer information
+- `\i`: Shows target information
 ```java
 [0x00000000]> \i
 arch  arm
@@ -38,7 +38,16 @@ e asm.arch=arm
 e asm.bits=64
 e asm.os=linux
 ```
-- `\il`
+- `\il`: List libraries. Commonly used with the symbol `~`, which is an internal grep of `r2`.
+```java
+[0x00000000]> \il~+keystore,ssl,crypto
+0x0000007f94133000 libcrypto.so
+0x0000007f93059000 libssl.so
+0x0000007f879d8000 libjavacrypto.so
+0x0000007f879d3000 libkeystore-engine.so
+0x0000007f87985000 libkeystore_binder.so
+0x0000007f5c491000 libvisacrypto.so
+```
 - `\iE (lib)`: List exports of library(ies)
 ```java
 [0xd0d77878]> \iE* frida-agent-32.so
