@@ -38,7 +38,43 @@ e asm.arch=arm
 e asm.bits=64
 e asm.os=linux
 ```
-- `\il`: List libraries. Commonly used with the symbol `~`, which is an internal grep of `r2`.
+- `\ii (lib)`: List imports. Commonly used with the symbol `~`, which is the internal grep of `r2`.
+```java
+[0x00000000]> \ii libssl.so~+aes
+0x7f9419f510 f EVP_aes_128_cbc /system/lib64/libcrypto.so
+0x7f941a2740 f EVP_aead_aes_128_cbc_sha1_ssl3 /system/lib64/libcrypto.so
+0x7f941a3314 f EVP_aead_aes_128_cbc_sha1_tls /system/lib64/libcrypto.so
+0x7f941a3320 f EVP_aead_aes_128_cbc_sha1_tls_implicit_iv /system/lib64/libcrypto.so
+0x7f941a332c f EVP_aead_aes_128_cbc_sha256_tls /system/lib64/libcrypto.so
+0x7f9419f5b8 f EVP_aead_aes_128_gcm /system/lib64/libcrypto.so
+0x7f941a274c f EVP_aead_aes_256_cbc_sha1_ssl3 /system/lib64/libcrypto.so
+0x7f941a3338 f EVP_aead_aes_256_cbc_sha1_tls /system/lib64/libcrypto.so
+0x7f941a3344 f EVP_aead_aes_256_cbc_sha1_tls_implicit_iv /system/lib64/libcrypto.so
+0x7f941a3350 f EVP_aead_aes_256_cbc_sha256_tls /system/lib64/libcrypto.so
+0x7f941a335c f EVP_aead_aes_256_cbc_sha384_tls /system/lib64/libcrypto.so
+0x7f9419f5c4 f EVP_aead_aes_256_gcm /system/lib64/libcrypto.so
+0x7f9419f600 f EVP_has_aes_hardware /system/lib64/libcrypto.so
+```
+
+- `\ii* (lib)`: List imports in `r2` form.
+```java
+[0x00000000]> \ii* libssl.so~+aes
+f sym.imp.EVP_aes_128_cbc = 0x7f9419f510
+f sym.imp.EVP_aead_aes_128_cbc_sha1_ssl3 = 0x7f941a2740
+f sym.imp.EVP_aead_aes_128_cbc_sha1_tls = 0x7f941a3314
+f sym.imp.EVP_aead_aes_128_cbc_sha1_tls_implicit_iv = 0x7f941a3320
+f sym.imp.EVP_aead_aes_128_cbc_sha256_tls = 0x7f941a332c
+f sym.imp.EVP_aead_aes_128_gcm = 0x7f9419f5b8
+f sym.imp.EVP_aead_aes_256_cbc_sha1_ssl3 = 0x7f941a274c
+f sym.imp.EVP_aead_aes_256_cbc_sha1_tls = 0x7f941a3338
+f sym.imp.EVP_aead_aes_256_cbc_sha1_tls_implicit_iv = 0x7f941a3344
+f sym.imp.EVP_aead_aes_256_cbc_sha256_tls = 0x7f941a3350
+f sym.imp.EVP_aead_aes_256_cbc_sha384_tls = 0x7f941a335c
+f sym.imp.EVP_aead_aes_256_gcm = 0x7f9419f5c4
+f sym.imp.EVP_has_aes_hardware = 0x7f9419f600
+```
+
+- `\il`: List libraries. Commonly used with the symbol `~`, which is the internal grep of `r2`.
 ```java
 [0x00000000]> \il~+keystore,ssl,crypto
 0x0000007f94133000 libcrypto.so
