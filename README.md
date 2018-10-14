@@ -175,7 +175,7 @@ dxc [sym|addr] [args..]    Call the target symbol with given args
  - 0x7f5bf6cdb8 libtarget.so!Java_com_super_secure_App+0x1710
  - 0x7f69e6a7e0 base.odex!oatexec+0x4e7e0
 ```
-## Evaluable variables
+## Evaluable variables (`\e`)
 - `e[?] [a[=b]]`: List/get/set config evaluable vars
 ```java
 [0x00000000]> \e
@@ -186,7 +186,7 @@ e stalker.event=compile
 e stalker.timeout=300
 e stalker.in=raw
 ```
-## Environment variables
+## Environment variables (`\env`)
 - `\env`: Get/set environment variable
 
 Set env variable:
@@ -216,8 +216,8 @@ ANDROID_SOCKET_zygote=9
 ANDROID_LOG_TAGS=*:s
 ```
 
-## Frida scripts
-JS code to be run in the target can be load with `\. nameofscript.js`. A common practice is to called this called `agent.js`.
+## Frida scripts (`\. script.js`)
+JS code to be run in the target can be load with `\. script.js`. A common practice is to called this called `agent.js`.
 ```java
 [0x00000000]> .\ agent.js
 [0x00000000]> \dc
