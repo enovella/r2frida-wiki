@@ -2,8 +2,8 @@
 
 Before reading this tutorial, it's highly recommended that you first take a look at the official website of [r2frida](https://github.com/nowsecure/r2frida) to install the tool as well as understand the capabilities of this one.
 
-Commands
-=========
+Commands (`\?`)
+===============
 In order to get the list of commands, you might want to type: `\?`
 
 ## Informative commands (`\i`)
