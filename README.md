@@ -6,14 +6,14 @@ Commands
 =========
 - \il
 - \iE (lib): List exports of library(ies)
-```sh
+```c
 [0xd0d77878]> \iE* frida-agent-32.so
 f sym.fun.frida_agent_main = 0xd671a2cd
 f sym.var.FRIDA_AGENT_1.0 = 0x0
 ```
 
 - \ii (lib): List imports of library(ies)
-```sh
+```c
 [0xd0d77878]> \ii frida-agent-32.so~open
 0xeeb94eb9 f opendir /system/lib/libc.so
 0xeebc9eb5 f freopen /system/lib/libc.so
