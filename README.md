@@ -175,6 +175,52 @@ dxc [sym|addr] [args..]    Call the target symbol with given args
  - 0x7f5bf6cdb8 libtarget.so!Java_com_super_secure_App+0x1710
  - 0x7f69e6a7e0 base.odex!oatexec+0x4e7e0
 ```
+## Evaluable variables
+- `e[?] [a[=b]]`: List/get/set config evaluable vars
+```java
+[0x00000000]> \e
+e patch.code=true
+e search.in=perm:r--
+e search.quiet=false
+e stalker.event=compile
+e stalker.timeout=300
+e stalker.in=raw
+```
+## Environment variables
+- `\env`: Get/set environment variable
+Set env variable:
+```java
+[0x00000000]> \env LD_PRELOAD=/data/local/tmp/libhook.so
+LD_PRELOAD=/data/local/tmp/libhook.so
+```
+Get env variable:
+```java
+[0x00000000]> \env LD_PRELOAD
+LD_PRELOAD=/data/local/tmp/libhook.so
+```
+List all variables:
+```java
+[0x00000000]> \env
+PATH=/su/bin:/sbin:/vendor/bin:/system/sbin:/system/bin:/su/xbin:/system/xbin
+ANDROID_BOOTLOGO=1
+ANDROID_ROOT=/system
+ANDROID_ASSETS=/system/app
+ANDROID_DATA=/data
+ANDROID_STORAGE=/storage
+EXTERNAL_STORAGE=/sdcard
+ASEC_MOUNTPOINT=/mnt/asec
+ANDROID_SOCKET_zygote=9
+ANDROID_LOG_TAGS=*:s
+```
+
+## Frida scripts
+JS code to be run in the target can be load with `\. nameofscript.js`. A common practice is to called this called `agent.js`.
+```java
+[0x00000000]> .\ agent.js
+[0x00000000]> \dc
+resumed spawned process.
+```
+
 
 Android
 =======
