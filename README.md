@@ -217,7 +217,7 @@ ANDROID_LOG_TAGS=*:s
 ```
 
 ## Frida scripts (`\. script.js`)
-JS code to be run in the target can be load with `\. script.js`. A common practice is to called this called `agent.js`.
+JS code to be run in the target can be load with `\. script.js`. A common practice is always to call this script `agent.js` to remember that's the code to be run inside the target.
 ```java
 [0x00000000]> .\ agent.js
 [0x00000000]> \dc
