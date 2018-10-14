@@ -4,7 +4,7 @@ Before reading this tutorial, it's highly recommended that you first take a look
 
 Commands
 =========
-## Informative commands
+## Informative commands (`\i`)
 ```java
 [0x00000000]> \?~^i
 i                          Show target information
