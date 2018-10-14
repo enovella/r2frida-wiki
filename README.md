@@ -103,6 +103,17 @@ dx [hexpairs]              Inject code and execute it (TODO)
 dxc [sym|addr] [args..]    Call the target symbol with given args
 ```
 
+- `\dt (<addr>|<sym>) ...`: Trace list of addresses or symbols. Similar to `frida-trace`
+```java
+[0x00000000]> \dt fopen; \dth fopen z; \dc
+[TRACE] 0x7f942bf1e8 ( fopen ) ["/proc/self/maps"]
+ - 0x7f5bf72d98 libtarget.so!scan_executable+0xf0
+ - 0x7f5bf72d94 libtarget.so!scan_executable+0xec
+ - 0x7f5bf721b4 libtarget.so!secchecks+0x90
+ - 0x7f5bf6cdb8 libtarget.so!Java_com_super_secure_App+0x1710
+ - 0x7f69e6a7e0 base.odex!oatexec+0x4e7e0
+```
+
 Android
 =======
 
