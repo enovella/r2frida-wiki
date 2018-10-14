@@ -1,6 +1,6 @@
 # r2frida-wiki
 
-Before reading this, it's highly recommended you first take a look at the official website of `r2frida` to install the app as well as understand the capabilities of this tool: https://github.com/nowsecure/r2frida/blob/master/README.md
+Before reading this tutorial, it's highly recommended that you first take a look at the official website of [r2frida](https://github.com/nowsecure/r2frida) to install the app as well as understand the capabilities of this tool.
 
 Commands
 =========
