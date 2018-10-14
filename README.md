@@ -174,16 +174,27 @@ Search hex string and outputs in JSON format:
 ```java
 [0x00000000]> \/xj c0ffee
 Searching 3 bytes in [0x0000007f95ebe000-0x0000007f95ebf000]
-Searching 3 bytes in [0x0000007f95ebf000-0x0000007f95ec2000]
-Searching 3 bytes in [0x0000007f95ec2000-0x0000007f95ec3000]
-Searching 3 bytes in [0x0000007f95ec3000-0x0000007f95ec6000]
+...
 Searching 3 bytes in [0x0000007fc74a5000-0x0000007fc7ca4000]
 hits: 7
 [{"address":"0x71100090","size":3,"flag":"hit4_0","content":"c0ffee"},{"address":"0x719a104c","size":3,"flag":"hit4_1","content":"c0ffee"},{"address":"0x7f59df54ec","size":3,"flag":"hit4_2","content":"c0ffee"},{"address":"0x7f5bfaf4ec","size":3,"flag":"hit4_3","content":"c0ffee"},{"address":"0x7f6141bb52","size":3,"flag":"hit4_4","content":"c0ffee"},{"address":"0x7f61e7de68","size":3,"flag":"hit4_5","content":"c0ffee"},{"address":"0x7f87c07623","size":3,"flag":"hit4_6","content":"c0ffee"}]
 ```
 Search value `v` from a given width in bytes `[1248]`:
 ```java
-[0x00000000]> \/v4 1337
+[0x00000000]> ? 1234
+hex     0x4d2
+string  "\xd2\x04"
+[0x00000000]> \/v4 1234
+Searching 3 bytes in [0x0000007f95ebe000-0x0000007f95ebf000]
+...
+Searching 3 bytes in [0x0000007fc74a5000-0x0000007fc7ca4000]
+hits: 1076
+0x7f95acfb23 hit2_1071 d2040000
+0x7f95ad01d3 hit2_1072 d2040000
+0x7f95e96a2b hit2_1073 d2040000
+0x7f95e96b17 hit2_1074 d2040000
+0x7f95e96f1f hit2_1075 d2040000
+0x7f95e96fb3 hit2_1076 d2040000
 ```
 
 ## Dynamic/Debugging commands (`\d`)
