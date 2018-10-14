@@ -31,7 +31,7 @@ objc  false
 java  true
 cylang  false
 ```
-- `\i*`: Shows target information in r2 form
+- `\i*`: Shows target information in `r2` form
 ```java
 [0x00000000]> \i*
 e asm.arch=arm
@@ -86,9 +86,26 @@ f sym.imp.EVP_has_aes_hardware = 0x7f9419f600
 ```
 - `\iE (lib)`: List exports of library(ies)
 ```java
-[0xd0d77878]> \iE* frida-agent-32.so
-f sym.fun.frida_agent_main = 0xd671a2cd
-f sym.var.FRIDA_AGENT_1.0 = 0x0
+[0x00000000]> \iE
+Do you want to print 111759 lines? (y/N) n
+```
+Filtering by library name:
+```java
+[0x00000000]> \iE libssl.so~AES
+0x7f9307afb4 f SSL_CIPHER_is_AES256CBC
+0x7f9307af64 f SSL_CIPHER_is_AES
+0x7f9307af8c f SSL_CIPHER_is_AESGCM
+0x7f9307af9c f SSL_CIPHER_is_AES128GCM
+0x7f9307afa8 f SSL_CIPHER_is_AES128CBC
+```
+Filtering by library name in `r2` form: (notice the `*`)
+```java
+[0x00000000]> \iE* libssl.so~AES
+f sym.fun.SSL_CIPHER_is_AES256CBC = 0x7f9307afb4
+f sym.fun.SSL_CIPHER_is_AES = 0x7f9307af64
+f sym.fun.SSL_CIPHER_is_AESGCM = 0x7f9307af8c
+f sym.fun.SSL_CIPHER_is_AES128GCM = 0x7f9307af9c
+f sym.fun.SSL_CIPHER_is_AES128CBC = 0x7f9307afa8
 ```
 
 - `\ii (lib)`: List imports of library(ies)
