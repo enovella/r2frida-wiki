@@ -288,6 +288,13 @@ After inspecting memory, we continue the execution:
 [0x00000000]> \dc
 Continue 1 thread(s).
 ```
+When breakpoints are no longer needed, they can be removed:
+```java
+[0x00000000]> \db- *
+All breakpoints removed
+[0x00000000]> \db
+{}
+```
 
 - `\dt (<addr>|<sym>) ...`: Trace list of addresses or symbols. Similar to `frida-trace`
 Dynamically tracing (`\dt`) `fopen`:
