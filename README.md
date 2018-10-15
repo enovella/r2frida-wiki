@@ -140,7 +140,7 @@ hits: 9
 0x7f5e8aceb5 hit1_1 rooted devices for data security reasons.:Operation excepti
 0x7f69566fa9 hit1_2 rooted?EECan not capture your card details, NFC feature is 
 0x7f6956f976 hit1_3 rooted or jailbroken. This is an added security measure to p
-0x7f695763ac hit1_4 rooted to keep your details safemada Pay utilizes the m
+0x7f695763ac hit1_4 rooted to keep your details safe AndroidPay utilizes the m
 0x7f69583dca hit1_5 rooted).T      
 0x7f6958dc30 hit1_6 rooted or jailbroken.Z    
 0x7f6958e011 hit1_7 rooted).      
