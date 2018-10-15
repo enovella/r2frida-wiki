@@ -233,6 +233,62 @@ dx [hexpairs]              Inject code and execute it (TODO)
 dxc [sym|addr] [args..]    Call the target symbol with given args
 ```
 
+- `db (<addr>|<sym>)`: List or place breakpoint
+Set a dynamic breakpoint: (notice the field `"stopped":false`)
+```java
+[0x00000000]> \db `\ii libtarget.so~dlsym[0]`
+{
+  "0x7f95e19548": {
+    "name": "0x7f95e19548",
+    "stopped": false,
+    "address": "0x7f95e19548",
+    "continue": false,
+    "handler": {}
+  }
+}
+```
+
+Once the breakpoint is hit (notice the field `"stopped":true`)
+```java
+[0x00000000]> \db
+{
+  "0x7f95e19548": {
+    "name": "0x7f95e19548",
+    "stopped": true,
+    "address": "0x7f95e19548",
+    "continue": false,
+    "handler": {}
+  }
+}
+```
+
+List all breakpoints:
+```java
+[0x00000000]> \db
+{
+  "0x7f95e19548": {
+    "name": "0x7f95e19548",
+    "stopped": true,
+    "address": "0x7f95e19548",
+    "continue": false,
+    "handler": {}
+  },
+  "0x7f942bf1e8": {
+    "name": "0x7f942bf1e8",
+    "stopped": false,
+    "address": "0x7f942bf1e8",
+    "continue": false,
+    "handler": {}
+  }
+}
+```
+
+After inspecting memory, we continue the execution:
+```java
+[0x00000000]> \dc
+Continue 1 thread(s).
+```
+
 - `\dt (<addr>|<sym>) ...`: Trace list of addresses or symbols. Similar to `frida-trace`
 Dynamically tracing (`\dt`) `fopen`:
 ```java
