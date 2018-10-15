@@ -153,7 +153,7 @@ Searching 6 bytes in [0x0000007f95ebe000-0x0000007f95ebf000]
 ...
 Searching 6 bytes in [0x0000007fc74a5000-0x0000007fc7ca4000]
 hits: 9
-[{"address":"0x7f595ec8e7","size":6,"flag":"hit2_0","content":"rootediso8601DateFormatissuerAccessCodeissuerActionCod"},{"address":"0x7f5e8aceb5","size":6,"flag":"hit2_1","content":"rooted devices for data security reasons.:Operation excepti"},{"address":"0x7f69566fa9","size":6,"flag":"hit2_2","content":"rooted?EECan not capture your card details, NFC feature is "},{"address":"0x7f6956f976","size":6,"flag":"hit2_3","content":"rooted or jailbroken. This is an added security measure to p"},{"address":"0x7f695763ac","size":6,"flag":"hit2_4","content":"rooted to keep your details safemada Pay utilizes the m"},{"address":"0x7f69583dca","size":6,"flag":"hit2_5","content":"rooted).T      "},{"address":"0x7f6958dc30","size":6,"flag":"hit2_6","content":"rooted or jailbroken.Z    "},{"address":"0x7f6958e011","size":6,"flag":"hit2_7","content":"rooted).      "},{"address":"0x7f6991d8e7","size":6,"flag":"hit2_8","content":"rootediso8601DateFormatissuerAccessCodeissuerActionCod"}]
+[{"address":"0x7f595ec8e7","size":6,"flag":"hit2_0","content":"rootediso8601DateFormatissuerAccessCodeissuerActionCod"},{"address":"0x7f5e8aceb5","size":6,"flag":"hit2_1","content":"rooted devices for data security reasons.:Operation excepti"},{"address":"0x7f69566fa9","size":6,"flag":"hit2_2","content":"rooted?EECan not capture your card details, NFC feature is "},{"address":"0x7f6956f976","size":6,"flag":"hit2_3","content":"rooted or jailbroken. This is an added security measure to p"},{"address":"0x7f695763ac","size":6,"flag":"hit2_4","content":"rooted to keep your details safe AndroidPay utilizes the m"},{"address":"0x7f69583dca","size":6,"flag":"hit2_5","content":"rooted).T      "},{"address":"0x7f6958dc30","size":6,"flag":"hit2_6","content":"rooted or jailbroken.Z    "},{"address":"0x7f6958e011","size":6,"flag":"hit2_7","content":"rooted).      "},{"address":"0x7f6991d8e7","size":6,"flag":"hit2_8","content":"rootediso8601DateFormatissuerAccessCodeissuerActionCod"}]
 ```
 Search hex string:
 ```java
@@ -234,6 +234,7 @@ dxc [sym|addr] [args..]    Call the target symbol with given args
 ```
 
 - `db (<addr>|<sym>)`: List or place breakpoint
+
 Set a dynamic breakpoint: (notice the field `"stopped":false`)
 ```java
 [0x00000000]> \db `\ii libtarget.so~dlsym[0]`
