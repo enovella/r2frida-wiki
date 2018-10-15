@@ -243,6 +243,32 @@ dxc [sym|addr] [args..]    Call the target symbol with given args
  - 0x7f5bf6cdb8 libtarget.so!Java_com_super_secure_App+0x1710
  - 0x7f69e6a7e0 base.odex!oatexec+0x4e7e0
 ```
+```java
+ -- Insert coin to continue ...
+[0x00000000]> \dt strcmp; \dth strcmp z z; \. agent.js ;\dc
+undefined
+[TRACE] 0x7f94267adc ( strcmp ) ["Landroid/app/ActivityThread;","Landroid/app/ActivityThread;"]
+ - 0x7f91abdeac libart.so!0x11ceac
+ - 0x7f91abdea8 libart.so!0x11cea8
+ - 0x7f91ace8b0 libart.so!_ZN3art10ClassTable6LookupEPKcm+0x100
+ - 0x7f91aa0b9c libart.so!_ZN3art11ClassLinker11LookupClassEPNS_6ThreadEPKcmPNS_6mirror11ClassLoaderE+0xc4
+ - 0x7f91aa0de8 libart.so!_ZN3art11ClassLinker26FindClassInPathClassLoaderERNS_33ScopedObjectAccessAlreadyRunnableEPNS_6ThreadEPKcmNS_6HandleINS_6mirror11ClassLoaderEEEPPNS8_5ClassE+0xfc
+ - 0x7f91aa0e7c libart.so!_ZN3art11ClassLinker26FindClassInPathClassLoaderERNS_33ScopedObjectAccessAlreadyRunnableEPNS_6ThreadEPKcmNS_6HandleINS_6mirror11ClassLoaderEEEPPNS8_5ClassE+0x190
+ - 0x7f91aa2234 libart.so!_ZN3art11ClassLinker9FindClassEPNS_6ThreadEPKcNS_6HandleINS_6mirror11ClassLoaderEEE+0x3b0
+ - 0x7f91ca1e24 libart.so!0x300e24
+ - 0x7f7b356884 frida-agent-64.so!0x177884
+[TRACE] 0x7f94267adc ( strcmp ) ["Landroid/hardware/radio/RadioManager$ModuleProperties;","Landroid/hardware/radio/RadioManager$ModuleProperties;"]
+ - 0x7f91abdeac libart.so!0x11ceac
+ - 0x7f91abdea8 libart.so!0x11cea8
+ - 0x7f91ace8b0 libart.so!_ZN3art10ClassTable6LookupEPKcm+0x100
+ - 0x7f91aa0b9c libart.so!_ZN3art11ClassLinker11LookupClassEPNS_6ThreadEPKcmPNS_6mirror11ClassLoaderE+0xc4
+ - 0x7f91aa0de8 libart.so!_ZN3art11ClassLinker26FindClassInPathClassLoaderERNS_33ScopedObjectAccessAlreadyRunnableEPNS_6ThreadEPKcmNS_6HandleINS_6mirror11ClassLoaderEEEPPNS8_5ClassE+0xfc
+ - 0x7f91aa0e7c libart.so!_ZN3art11ClassLinker26FindClassInPathClassLoaderERNS_33ScopedObjectAccessAlreadyRunnableEPNS_6ThreadEPKcmNS_6HandleINS_6mirror11ClassLoaderEEEPPNS8_5ClassE+0x190
+ - 0x7f91aa2234 libart.so!_ZN3art11ClassLinker9FindClassEPNS_6ThreadEPKcNS_6HandleINS_6mirror11ClassLoaderEEE+0x3b0
+ - 0x7f91ca1e24 libart.so!0x300e24
+ - 0x7f7b356884 frida-agent-64.so!0x177884
+```
+
 ## Evaluable variables (`\e`)
 - `e[?] [a[=b]]`: List/get/set config evaluable vars
 ```java
