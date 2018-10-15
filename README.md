@@ -248,7 +248,7 @@ Set a dynamic breakpoint: (notice the field `"stopped":false`)
 }
 ```
 
-Once the breakpoint is hit (notice the field `"stopped":true`)
+Once the breakpoint is hit, we can tamper with memory at will (notice the field `"stopped":true`)
 ```java
 [0x00000000]> \db
 {
@@ -288,6 +288,7 @@ After inspecting memory, we continue the execution:
 [0x00000000]> \dc
 Continue 1 thread(s).
 ```
+
 When breakpoints are no longer needed, they can be removed:
 ```java
 [0x00000000]> \db- *
