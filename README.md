@@ -297,6 +297,38 @@ All breakpoints removed
 {}
 ```
 
+- `\dm`: Show memory regions (equivalent to `cat /proc/$PID/maps`)
+List of memory regions (JSON output in the second command)
+```java
+[0x7f93059000]> \dm
+Do you want to print 1708 lines? (y/N) n
+[0x7f93059000]> \dmj
+Do you want to print 1 lines? (y/N) n
+```
+Filter by library name:
+```java
+[0x00000000]> \dm~ssl
+0x0000007f618ee000 - 0x0000007f61929000 r-- /system/lib64/libssl.so
+0x0000007f93059000 - 0x0000007f93091000 r-x /system/lib64/libssl.so
+0x0000007f93092000 - 0x0000007f93094000 r-- /system/lib64/libssl.so
+0x0000007f93094000 - 0x0000007f93095000 rw- /system/lib64/libssl.so
+```
+Filter by library name, enable the output to be in `r2` format:
+```java
+[0x7f93059000]> \dm*~ssl
+f map.0x0000007f618ee000 = 0x7f618ee000 # r-- /system/lib64/libssl.so
+f map.0x0000007f93059000 = 0x7f93059000 # r-x /system/lib64/libssl.so
+f map.0x0000007f93092000 = 0x7f93092000 # r-- /system/lib64/libssl.so
+f map.0x0000007f93094000 = 0x7f93094000 # rw- /system/lib64/libssl.so
+```
+
+Find out the memory region of the current offset:
+```java
+[0x00000000]> s 0x0000007f93059000
+[0x7f93059000]> \dm.
+0x0000007f93059000 - 0x0000007f93091000 r-x /system/lib64/libssl.so
+```
+
 - `\dt (<addr>|<sym>) ...`: Trace list of addresses or symbols. Similar to `frida-trace`
 Dynamically tracing (`\dt`) `fopen`:
 ```java
