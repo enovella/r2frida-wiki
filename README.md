@@ -298,6 +298,7 @@ All breakpoints removed
 ```
 
 - `\dm`: Show memory regions (equivalent to `cat /proc/$PID/maps`)
+
 List of memory regions (JSON output in the second command)
 ```java
 [0x7f93059000]> \dm
@@ -330,6 +331,7 @@ Find out the memory region of the current offset:
 ```
 
 - `\dt (<addr>|<sym>) ...`: Trace list of addresses or symbols. Similar to `frida-trace`
+
 Dynamically tracing (`\dt`) `fopen`:
 ```java
 [0x00000000]> \dt fopen; \dth fopen z; \dc
