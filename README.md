@@ -269,6 +269,20 @@ undefined
  - 0x7f7b356884 frida-agent-64.so!0x177884
 ```
 
+```java
+[0x00000000]> \dt unlink; \dth unlink z; \. agent.js ;\dc
+[TRACE] 0x7f94274fe0 ( unlink ) ["/data/data/com.target.app/.   ​"]
+ - 0x7f942a5824 libc.so!remove+0x58
+ - 0x7f942a5820 libc.so!remove+0x54
+ - 0x7f8c39f724 libopenjdk.so!Java_java_io_UnixFileSystem_delete0+0x5c
+ - 0x720157dc boot.oat!oatexec+0x647dc
+[TRACE] 0x7f94274fe0 ( unlink ) ["/data/data/com.target.app/.   "]
+ - 0x7f942a5824 libc.so!remove+0x58
+ - 0x7f942a5820 libc.so!remove+0x54
+ - 0x7f8c39f724 libopenjdk.so!Java_java_io_UnixFileSystem_delete0+0x5c
+ - 0x720157dc boot.oat!oatexec+0x647dc
+ ```
+
 ## Evaluable variables (`\e`)
 - `e[?] [a[=b]]`: List/get/set config evaluable vars
 ```java
