@@ -234,7 +234,7 @@ dxc [sym|addr] [args..]    Call the target symbol with given args
 ```
 
 - `\dt (<addr>|<sym>) ...`: Trace list of addresses or symbols. Similar to `frida-trace`
-`D`ynamically `t`racing `fopen`:
+Dynamically tracing (`\dt`) `fopen`:
 ```java
 [0x00000000]> \dt fopen; \dth fopen z; \dc
 [TRACE] 0x7f942bf1e8 ( fopen ) ["/proc/self/maps"]
@@ -244,8 +244,7 @@ dxc [sym|addr] [args..]    Call the target symbol with given args
  - 0x7f5bf6cdb8 libtarget.so!Java_com_super_secure_App+0x1710
  - 0x7f69e6a7e0 base.odex!oatexec+0x4e7e0
 ```
-
-`D`ynamically `t`racing `strcmp`:
+Dynamically tracing (`\dt`) `strcmp`:
 ```java
  -- Insert coin to continue ...
 [0x00000000]> \dt strcmp; \dth strcmp z z; \. agent.js ;\dc
@@ -271,7 +270,8 @@ undefined
  - 0x7f91ca1e24 libart.so!0x300e24
  - 0x7f7b356884 frida-agent-64.so!0x177884
 ```
-`D`ynamically `t`racing `unlink`:
+
+Dynamically tracing (`\dt`) `unlink`:
 ```java
 [0x00000000]> \dt unlink; \dth unlink z; \. agent.js ;\dc
 [TRACE] 0x7f94274fe0 ( unlink ) ["/data/data/com.target.app/.   ​"]
