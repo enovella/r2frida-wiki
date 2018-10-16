@@ -385,7 +385,7 @@ Dynamic tracing (`\dt`) `unlink`:
  - 0x720157dc boot.oat!oatexec+0x647dc
  ```
 
-## Evaluable variables (`\e`)
+## Evaluable Variables (`\e`)
 - `e[?] [a[=b]]`: List/get/set config evaluable vars
 ```java
 [0x00000000]> \e
@@ -426,25 +426,162 @@ ANDROID_SOCKET_zygote=9
 ANDROID_LOG_TAGS=*:s
 ```
 
-## Frida scripts (`\. script.js`)
+## Frida Scripts (`\. script.js`)
+
 JS code to be run in the target can be loaded with `\. script.js`. A common practice is always to call this script `agent.js` to remember that's the code to be run inside the target.
+
 ```java
 [0x00000000]> .\ agent.js
 [0x00000000]> \dc
 resumed spawned process.
 ```
 
+## Mobile Testing
 
-Android
-=======
+---
 
-Attaching
----------
+Retrieve the device id using `frida-ls-devices` and the name of the app using `frida-ps`. The package name may be preferrable if the display name contains spaces.
 
-Spawning
---------
+### Attach
 
-iOS
-===
+Attach to a running app using the display name.
 
-**TODO**
+```bash
+r2 frida://device-id/Snapchat
+```
+
+### Spawn
+
+Spawn an app using two `//` and the package name.
+
+```bash
+r2 frida://device-id//com.snapchat.android
+```
+
+---
+
+### Android
+
+```
+#TODO
+```
+
+---
+
+### iOS
+
+List classes (`\ic`):
+
+(This will have a large output.)
+
+```java
+[0x00000000]> \ic
+OS_dispatch_queue_attr
+OS_dispatch_group
+OS_dispatch_semaphore
+OS_dispatch_mach
+OS_dispatch_source
+OS_dispatch_queue
+OS_dispatch_queue_mgr
+OS_dispatch_queue_network_event
+OS_dispatch_queue_root
+OS_dispatch_queue_main
+OS_dispatch_queue_concurrent
+OS_dispatch_queue_serial
+OS_dispatch_queue_runloop
+[0x00000000]>
+```
+
+List classes with a filter:
+
+```java
+[0x00000000]> \ic ~UITouch
+_UITouchObservation
+_UITouchForceMessage
+_UITouchForceObservationMessageReader
+_DUITouchRoutingPolicy
+UITouch
+_UITouchForwardingRecipient
+_UITouchPredictionManager
+UITouchData
+_UITouchForceInteractionProgress
+_UITouchForceObservable
+UITouchForceGestureRecognizer
+_UITouchesObservingGestureRecognizer
+UITouchesEvent
+[0x00000000]>
+```
+
+List fields in one class:
+
+```java
+[0x00000000]> \ic UITouch
+0x000000018df1bf38 + _createTouchesWithGSEvent:phase:view:
+0x0000000197826758 - pu_locationInPresentationLayerOfView:
+0x000000019b18ab74 - locationInNode:
+0x000000019b18acd0 - previousLocationInNode:
+0x000000018db33858 - window
+0x000000018db34794 - locationInView:
+0x000000018db339f0 - phase
+0x000000018db41d0c - .cxx_destruct
+0x000000018db41cb8 - dealloc
+0x000000018df1c170 - description
+0x000000018db33ee0 - view
+0x000000018db34da0 - timestamp
+0x000000018db32924 - setWindow:
+0x000000018dd230f4 - _setEaten:
+0x000000018db33540 - _isEaten
+[0x00000000]>
+```
+
+List protocols (\ip):
+
+(This will have a large output.)
+
+```java
+[0x00000000]> \ip
+GVRenderer
+CADSyncInterface
+VKMapModelDelegate
+SCNPhysicsBehaviorJSExport
+GEOMapServiceProblemReportTicket
+PXWidgetUnlockDelegate
+ICMusicSubscriptionLeaseSessionDelegate
+IKJSDOMCharacterData
+ACDAccountAuthenticationPlugin
+TUIDSLookup
+FCOrderedCollectionAdditions
+MSSubscribeStreamsProtocolDelegate
+_DKEventStatsCounterInternalProperty
+FBInterstitialAdNativeViewDelegate
+[0x00000000]>
+```
+
+List protocols with a filter:
+
+```java
+[0x00000000]> \ip ~Touch
+GADNTouchHandling
+UIScrollViewDelayedTouchesBeganGestureRecognizerClient
+_UITouchPhaseChangeDelegate
+_UIKBRTTouchDriftingDelegate
+UIDebuggingInformationTouchObserver
+WBSTouchIconObserver
+BKSTouchDeliveryPolicyServerInterface
+_UITouchForceObservationMessageReading
+_UITouchable
+_UIFocusEnginePanGestureTouchObserver
+UIWebTouchEventsGestureRecognizerDelegate
+_MKUserInteractionGestureRecognizerTouchObserver
+FBAdTouchGestureRecognizerDelegate
+_UIPreviewInteractionTouchForceProviding
+[0x00000000]>
+```
+
+List methods of one protocol:
+
+```java
+[0x00000000]> \ip GADNTouchHandling
+- handleUserTouchMovedByVector:
+[0x00000000]>
+```
