@@ -373,6 +373,37 @@ Find out the memory region of the current offset:
 [0x7f93059000]> \dm.
 0x0000007f93059000 - 0x0000007f93091000 r-x /system/lib64/libssl.so
 ```
+- `\dma <size>`: Allocate <size> bytes on the heap, address is returned
+
+```java
+[0x00000000]> \dma 512
+0xcb1777f0
+[0x00000000]> x 512 @ 0xcb1777f0
+- offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF
+0xcb1777f0  0000 0000 0000 0000 0000 0000 0000 0000  ................
+0xcb177800  0000 0000 0000 0000 0000 0000 0000 0000  ................
+```
+- `\dmas <string>`: Allocate a string inited with <string> on the heap
+  
+```java
+0x00000000]> \dmas r2fridaiscool
+0xf3d7ee10
+[0x00000000]> ps @ 0xf3d7ee10
+r2fridaiscool
+[0x00000000]> x @ 0xf3d7ee10
+- offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF
+0xf3d7ee10  7232 6672 6964 6169 7363 6f6f 6c00 f2ff  r2fridaiscool...
+0xf3d7ee20  1800 0000 1300 0000 01a3 57de 0000 0000  ..........W.....
+0xf3d7ee30  0000 0000 2300 0000 7265 2e66 7269 6461  ....#...re.frida
+0xf3d7ee40  2e41 6765 6e74 436f 6e74 726f 6c6c 6572  .AgentController
+0xf3d7ee50  3132 0000 1b00 0000 c050 d7f3 0300 0000  12.......P......
+```
+- `\dmal` : List live heap allocations created with dma[s]
+
+```java
+[0x00000000]> \dmal
+0xf3d7ee10	"r2fridaiscoolW#re.frida.AgentContro"
+```
 
 - `\dt (<addr>|<sym>) ...`: Trace list of addresses or symbols. Similar to `frida-trace`
 
