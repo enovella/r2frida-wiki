@@ -38,7 +38,7 @@ e asm.arch=arm
 e asm.bits=64
 e asm.os=linux
 ```
-- `\ii (lib)`: List imports. Commonly used with the symbol `~`, which is the internal grep of `r2`.
+- `\ii <lib>`: List imports. Commonly used with the symbol `~`, which is the internal grep of `r2`.
 ```java
 [0x00000000]> \ii libssl.so~+aes
 0x7f9419f510 f EVP_aes_128_cbc /system/lib64/libcrypto.so
@@ -56,7 +56,7 @@ e asm.os=linux
 0x7f9419f600 f EVP_has_aes_hardware /system/lib64/libcrypto.so
 ```
 
-- `\ii* (lib)`: List imports in `r2` form.
+- `\ii* <lib>`: List imports in `r2` form.
 ```java
 [0x00000000]> \ii* libssl.so~+aes
 f sym.imp.EVP_aes_128_cbc = 0x7f9419f510
@@ -84,7 +84,7 @@ f sym.imp.EVP_has_aes_hardware = 0x7f9419f600
 0x0000007f87985000 libkeystore_binder.so
 0x0000007f5c491000 libvisacrypto.so
 ```
-- `\iE (lib)`: List exports of library(ies)
+- `\iE <lib>`: List exports of library(ies)
 ```java
 [0x00000000]> \iE
 Do you want to print 111759 lines? (y/N) n
@@ -108,7 +108,7 @@ f sym.fun.SSL_CIPHER_is_AES128GCM = 0x7f9307af9c
 f sym.fun.SSL_CIPHER_is_AES128CBC = 0x7f9307afa8
 ```
 
-- `\ii (lib)`: List imports of library(ies)
+- `\ii <lib>`: List imports of library(ies)
 ```java
 [0xd0d77878]> \ii frida-agent-32.so~open
 0xeeb94eb9 f opendir /system/lib/libc.so
