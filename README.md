@@ -38,6 +38,7 @@ e asm.arch=arm
 e asm.bits=64
 e asm.os=linux
 ```
+
 - `\ii <lib>`: List imports. Commonly used with the symbol `~`, which is the internal grep of `r2`.
 ```java
 [0x00000000]> \ii libssl.so~+aes
@@ -108,17 +109,59 @@ f sym.fun.SSL_CIPHER_is_AES128GCM = 0x7f9307af9c
 f sym.fun.SSL_CIPHER_is_AES128CBC = 0x7f9307afa8
 ```
 
-- `\ii <lib>`: List imports of library(ies)
+- `\iEa (<lib>) <sym>`: Show address of export symbol
+
 ```java
-[0xd0d77878]> \ii frida-agent-32.so~open
-0xeeb94eb9 f opendir /system/lib/libc.so
-0xeebc9eb5 f freopen /system/lib/libc.so
-0xeebc9ce9 f fopen /system/lib/libc.so
-0xeebc9e09 f fdopen /system/lib/libc.so
-0xeeb97b15 f open /system/lib/libc.so
-0xeeb94e31 f fdopendir /system/lib/libc.so
-0xeeb97ba1 f openat /system/lib/libc.so
-0xef39ac81 f dlopen /system/bin/linker
+[0x00000000]> \iEa libDexHelper.so JNI_OnLoad
+0xd1c2b859
+```
+
+- `\iEa* (<lib>) <sym>`: Show address of export symbol in `r2` format
+
+```java
+[0x00000000]> \iEa* libDexHelper.so JNI_OnLoad
+f sym.JNI_OnLoad = 0xd1c2b859
+```
+- `\isa[*] (<lib>) <sym>`:  Show address of symbol
+
+```java
+[0xd5d26859]> \is libc.so~sprintf
+0x0 f bionic/libc/upstream-openbsd/lib/libc/stdio/asprintf.c
+0x0 f bionic/libc/upstream-openbsd/lib/libc/stdio/vasprintf.c
+0x0 f bionic/libc/upstream-openbsd/lib/libc/stdio/vsprintf.c
+0x0 f bionic/libc/bionic/__vsprintf_chk.cpp
+0x0 f bionic/libc/stdio/sprintf.c
+0xf5140be5 f asprintf
+0xf5142dbd f vasprintf
+0xf5148da9 f vsprintf
+0xf5153c01 f __vsprintf_chk
+0xf5153c29 f __sprintf_chk
+0xf5155885 f sprintf
+
+[0xd5d26859]> \isa sprintf
+0xf5155885
+```
+- `\ic`: List classes
+
+```java
+[0x00000000]> \ic
+Do you want to print 5769 lines? (y/N) n
+```
+Filtering by keyword (e.g package name):
+
+```java
+[0x00000000]> \ic~+security
+android.security.net.config.TrustAnchor
+android.security.net.config.UserCertificateSource
+android.security.net.config.CertificatesEntryRef
+android.security.net.config.DirectoryCertificateSource$CertSelector
+android.security.net.config.RootTrustManager
+android.security.net.config.PinSet
+android.security.net.config.CertificateSource
+android.security.keystore.AndroidKeyStoreProvider
+android.security.net.config.NetworkSecurityConfig$Builder
+android.security.net.config.ApplicationConfig
+android.security.NetworkSecurityPolicy
 ```
 
 ## Search commands (`\/`)
