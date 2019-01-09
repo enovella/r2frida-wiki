@@ -2,6 +2,30 @@
 
 Before reading this tutorial, it's highly recommended that you first take a look at the official website of [r2frida](https://github.com/nowsecure/r2frida) to install the tool as well as understand the capabilities of this one.
 
+
+## Connecting r2 and Frida
+
+---
+
+Retrieve the device id using `frida-ls-devices` and the name of the app using `frida-ps`. The package name may be preferrable if the display name contains spaces.
+
+### Attach
+
+Attach to a running app using the display name.
+
+```bash
+r2 frida://device-id/Snapchat
+```
+
+### Spawn
+
+Spawn an app using two `//` and the package name.
+
+```bash
+r2 frida://device-id//com.snapchat.android
+```
+
+
 Commands (`\?`)
 ===============
 In order to get the list of commands, you might want to type: `\?`
@@ -510,37 +534,6 @@ JS code to be run in the target can be loaded with `\. script.js`. A common prac
 resumed spawned process.
 ```
 
-## Mobile Testing
-
----
-
-Retrieve the device id using `frida-ls-devices` and the name of the app using `frida-ps`. The package name may be preferrable if the display name contains spaces.
-
-### Attach
-
-Attach to a running app using the display name.
-
-```bash
-r2 frida://device-id/Snapchat
-```
-
-### Spawn
-
-Spawn an app using two `//` and the package name.
-
-```bash
-r2 frida://device-id//com.snapchat.android
-```
-
----
-
-### Android
-
-```
-#TODO
-```
-
----
 
 ### iOS
 
