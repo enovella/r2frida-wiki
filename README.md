@@ -3,10 +3,8 @@
 Before reading this tutorial, it's highly recommended that you first take a look at the official website of [r2frida](https://github.com/nowsecure/r2frida) to install the tool as well as understand the capabilities of this one.
 
 
-## Connecting r2 and Frida
-
----
-
+Connection
+===========
 Retrieve the device id using `frida-ls-devices` and the name of the app using `frida-ps`. The package name may be preferrable if the display name contains spaces.
 
 ### Attach
