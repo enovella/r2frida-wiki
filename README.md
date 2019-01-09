@@ -28,6 +28,8 @@ Commands (`\?`)
 ===============
 In order to get the list of commands, you might want to type: `\?`
 
+![imaing](https://github.com/enovella/r2frida-wiki/blob/master/img/r2frida-android.jpg)
+
 ## Informative commands (`\i`)
 ```java
 [0x00000000]> \?~^i
@@ -203,12 +205,12 @@ Searching 6 bytes in [0x0000007fc74a5000-0x0000007fc7ca4000]
 hits: 9
 0x7f595ec8e7 hit1_0 rootediso8601DateFormatissuerAccessCodeissuerActionCod
 0x7f5e8aceb5 hit1_1 rooted devices for data security reasons.:Operation excepti
-0x7f69566fa9 hit1_2 rooted?EECan not capture your card details, NFC feature is 
+0x7f69566fa9 hit1_2 rooted?EECan not capture your card details, NFC feature is
 0x7f6956f976 hit1_3 rooted or jailbroken. This is an added security measure to p
 0x7f695763ac hit1_4 rooted to keep your details safe AndroidPay utilizes the m
-0x7f69583dca hit1_5 rooted).T      
-0x7f6958dc30 hit1_6 rooted or jailbroken.Z    
-0x7f6958e011 hit1_7 rooted).      
+0x7f69583dca hit1_5 rooted).T
+0x7f6958dc30 hit1_6 rooted or jailbroken.Z
+0x7f6958e011 hit1_7 rooted).
 0x7f6991d8e7 hit1_8 rootediso8601DateFormatissuerAccessCodeissuerActionCod
 ```
 Search string `keyword` and output in JSON format:
@@ -406,7 +408,7 @@ Find out the memory region of the current offset:
 0xcb177800  0000 0000 0000 0000 0000 0000 0000 0000  ................
 ```
 - `\dmas <string>`: Allocate a string inited with <string> on the heap
-  
+
 ```java
 0x00000000]> \dmas r2fridaiscool
 0xf3d7ee10
