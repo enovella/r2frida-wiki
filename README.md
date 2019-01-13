@@ -63,6 +63,15 @@ e asm.bits=64
 e asm.os=linux
 ```
 
+- `.\i*`: Radare2 imports all the dynamic binary data from Frida. E.g: which architecture, endianness, pointer size, etc...
+![imaing](https://github.com/enovella/r2frida-wiki/blob/master/img/arm_thumb.png)
+
+- `.\iE*`: Radare2 imports all the dynamic `export` data from Frida for all the dynamic libraries.
+
+- `.\iE* <lib>`: Radare2 imports all the dynamic `export` data from Frida for only one specific library.
+
+- `.\ii*`: Radare2 imports all the dynamic `import` data from Frida.
+
 - `\ii <lib>`: List imports. Commonly used with the symbol `~`, which is the internal grep of `r2`.
 ```java
 [0x00000000]> \ii libssl.so~+aes
