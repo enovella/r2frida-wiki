@@ -731,3 +731,16 @@ x20 : 0x00000000003c0021	x21 : 0x0000000000000021	x22 : 0x0000000000000001
 x23 : 0x00000001b238e000	x24 : 0x0000000000002000	x25 : 0x0000000000080000
 x26 : 0x0000000000000007	x27 : 0x00000001b238e000	x28 : 0x0000000000000000
 ```
+
+- `dtr <addr> (<regs>...)`: Trace register values
+
+Trace register(`x1`) at address `0x102d2e3f4`
+```java
+[0x00000000]> \dtr 0x102d2e3f4 x1
+```
+
+Once the address is hit, the register value is shown:
+```
+Trace probe hit at 0x102d2e3f4  (0x102d2e3f4) 0x19fd3e4
+	x1 = 0x111243c80 ( user=eduardo;passwd=novella )
+```
