@@ -222,6 +222,7 @@ hits: 9
 0x7f6958e011 hit1_7 rooted).
 0x7f6991d8e7 hit1_8 rootediso8601DateFormatissuerAccessCodeissuerActionCod
 ```
+
 Search string `keyword` and output in JSON format:
 ```java
 [0x00000000]> \/j rooted
@@ -231,6 +232,22 @@ Searching 6 bytes in [0x0000007fc74a5000-0x0000007fc7ca4000]
 hits: 9
 [{"address":"0x7f595ec8e7","size":6,"flag":"hit2_0","content":"rootediso8601DateFormatissuerAccessCodeissuerActionCod"},{"address":"0x7f5e8aceb5","size":6,"flag":"hit2_1","content":"rooted devices for data security reasons.:Operation excepti"},{"address":"0x7f69566fa9","size":6,"flag":"hit2_2","content":"rooted?EECan not capture your card details, NFC feature is "},{"address":"0x7f6956f976","size":6,"flag":"hit2_3","content":"rooted or jailbroken. This is an added security measure to p"},{"address":"0x7f695763ac","size":6,"flag":"hit2_4","content":"rooted to keep your details safe AndroidPay utilizes the m"},{"address":"0x7f69583dca","size":6,"flag":"hit2_5","content":"rooted).T      "},{"address":"0x7f6958dc30","size":6,"flag":"hit2_6","content":"rooted or jailbroken.Z    "},{"address":"0x7f6958e011","size":6,"flag":"hit2_7","content":"rooted).      "},{"address":"0x7f6991d8e7","size":6,"flag":"hit2_8","content":"rootediso8601DateFormatissuerAccessCodeissuerActionCod"}]
 ```
+
+Another example searching for potential whitebox cryptography implementations:
+```java
+[0x00000000]> \/ whitebox
+Searching 8 bytes in [0x0000007fa558c000-0x0000007fa558f000]
+Searching 8 bytes in [0x0000007feee1a000-0x0000007fef619000]
+hits: 7
+0x7f6cf4481d hit1_0 whitebox_damagePKhPhi_Z15whitebox_repairPhS_i_Z16CryptoPP_
+0x7f6cf44837 hit1_1 whitebox_repairPhS_i_Z16CryptoPP_GenKeysSs_Z16gen_random_b
+0x7f6f27c81d hit1_2 whitebox_damagePKhPhi_Z15whitebox_repairPhS_i_Z16CryptoPP_
+0x7f6f27c837 hit1_3 whitebox_repairPhS_i_Z16CryptoPP_GenKeysSs_Z16gen_random_b
+0x7f6f8fd4f9 hit1_4 whiteboxed_key_gen.cG[fzM~=)j-#wTOL$C9
+0x7f6fa185f0 hit1_5 whiteboxed_key_gen.c=j;h58Z\^X).ln|
+0x7f7dcb7552 hit1_6 whitebox
+```
+
 Search hex string:
 ```java
 [0x00000000]> \/x c0ffee
@@ -406,6 +423,13 @@ Find out the memory region of the current offset:
 [0x7f93059000]> \dm.
 0x0000007f93059000 - 0x0000007f93091000 r-x /system/lib64/libssl.so
 ```
+
+Without seeking into an offset:
+```java
+[0x00000000]> \dm. @ 0x7f6f8fd4f9
+0x0000007f6f8fd000 - 0x0000007f6fa56000 rw- /data/app/com.target.pay-1/lib/arm64/libvisacrypto.so
+```
+
 - `\dma <size>`: Allocate <size> bytes on the heap, address is returned
 
 ```java
