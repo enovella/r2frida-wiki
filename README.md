@@ -516,6 +516,28 @@ Dynamic tracing (`\dt`) `unlink`:
  - 0x720157dc boot.oat!oatexec+0x647dc
  ```
 
+- `\dkr`: Print the crash report (if the app has crashed)
+```java
+error: Script is destroyed
+error: Script is destroyed
+[0xc3374000]> \dkr
+*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Build fingerprint: 'OnePlus/OnePlus5/OnePlus5:7.0/NRD90M/0131337:user/release-keys'
+Revision: '0'
+ABI: 'arm'
+pid: 9207, tid: 9229, name: gum-js-loop  >>> com.target.application <<<
+signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+Abort message: '../../../glib/glib/gmem.c:106: failed to allocate 1037852 bytes'
+    r0 00000000  r1 0000240d  r2 00000006  r3 00000008
+    r4 ce47f978  r5 00000006  r6 ce47f920  r7 0000010c
+    r8 00000000  r9 00000007  sl 0000e98d  fp 0000e98c
+    ip 0000000c  sp ce47f268  lr e8d944b7  pc e8d96d38  cpsr 200f0010
+
+backtrace:
+    #00 pc 00000d38  /system/lib/libc.so (offset 0x49000)
+    #01 pc 000264b3  /system/lib/libc.so (offset 0x21000)
+```
+
 ## Evaluable Variables (`\e`)
 - `e[?] [a[=b]]`: List/get/set config evaluable vars
 ```java
