@@ -538,6 +538,36 @@ backtrace:
     #01 pc 000264b3  /system/lib/libc.so (offset 0x21000)
 ```
 
+- `\dxc [sym|addr] [args..]`: Call the target symbol with given args
+
+Find a function to call to:
+```java
+[0x00000000]> \ii frida-gadget.so~gettimeofday
+0xf40d8590 f gettimeofday /system/lib/libc.so
+```
+
+As we want to call the function `int gettimeofday(struct timeval *tv, struct timezone *tz);` we would need two new structs. For doing so, we can allocate some memory in the heap and get two pointers.
+```java
+# int gettimeofday(struct timeval *tv, struct timezone *tz);
+[0x00000000]> \dma 16
+0xebaf6f18
+[0x00000000]> \dma 16
+0xebaf70d8
+```
+Finally we can call the function using the calculated pointers. The `dxc` command returns the return value of the function called.
+```java
+[0x00000000]> \dxc 0xf40d8590 0xebaf6f18 0xebaf70d8
+"0x0"
+```
+Verifying that the pointer got populated. For this specific example, we can use the r2 command `pt` (print timestamp) to get the content from this pointer.
+```java
+[0x00000000]> x 16 @ 0xebaf6f18
+- offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF
+0xebaf6f18  301e ae5c 0b6c 0200 0000 0000 0000 0000  0..\.l..........
+[0x00000000]> pt 4 @ 0xebaf6f18
+Wed Apr 10 17:47:44 2019
+```
+
 ## Evaluable Variables (`\e`)
 - `e[?] [a[=b]]`: List/get/set config evaluable vars
 ```java
