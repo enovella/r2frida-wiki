@@ -546,19 +546,19 @@ Find a function to call to:
 0xf40d8590 f gettimeofday /system/lib/libc.so
 ```
 
-As we want to call the function `int gettimeofday(struct timeval *tv, struct timezone *tz);` we would need two new structs. For doing so, we can allocate some memory in the heap and get two pointers.
+As we want to call the function `int gettimeofday(struct timeval *tv, struct timezone *tz);` we would need two new structs. For doing so, we can allocate some memory in the heap of the process and get two pointers.
 ```java
 [0x00000000]> \dma 16
 0xebaf6f18
 [0x00000000]> \dma 16
 0xebaf70d8
 ```
-Finally we can call the function using the calculated pointers. The `dxc` command returns the return value of the function called.
+Finally we can call the function using the aforementioned pointers. The `dxc` command returns the return value of the function called.
 ```java
 [0x00000000]> \dxc 0xf40d8590 0xebaf6f18 0xebaf70d8
 "0x0"
 ```
-Verifying that the pointer got populated. For this specific example, we can use the r2 command `pt` (print timestamp) to get the content of this pointer.
+For this specific example, we can use the r2 command `pt` (print timestamp) to verify that the pointer got indeed populated with the timestamp.
 ```java
 [0x00000000]> x 16 @ 0xebaf6f18
 - offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF
