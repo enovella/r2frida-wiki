@@ -26,6 +26,10 @@ Or explicitly using the word `spawn`:
 ```bash
 r2 frida://spawn/usb/device-id/com.android.app
 ```
+Or without entering the `device-id`:
+```bash
+r2 frida://spawn/usb//com.android.app
+```
 
 Commands (`\?`)
 ===============
