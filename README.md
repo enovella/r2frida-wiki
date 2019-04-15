@@ -22,7 +22,10 @@ Spawn an app using two `//` and the package name.
 ```bash
 r2 frida://device-id//com.snapchat.android
 ```
-
+Or explicitly using the word `spawn`:
+```bash
+r2 frida://spawn/usb/device-id/com.android.app
+```
 
 Commands (`\?`)
 ===============
