@@ -550,14 +550,14 @@ resumed spawned process.
 	0x7f908b4664	libshella-2.9.0.5.so	0xfffffffff9d91664
 	0x7f908b4b1c	libshella-2.9.0.5.so	JNI_OnLoad+0x124
 	0x7f96b24bac	libshella-2.9.0.5.so	0x1bac
-	0x7f97ecf650	libart.so	ZN3art9JavaVMExt17LoadNativeLibraryEP7_JNIEnvRK...<REDACTED>...9_+0x858
+	0x7f97ecf650	libart.so	_ZN3art9JavaVMExt17LoadNativeLibrary<REDACTED>...9_+0x858
 [TRACE] dtf     fopen   (0: "/proc/self/stat")  0x7f99409550    libc.so pthread_getattr_np+0xc4
 	0x7f9940954c	libc.so	pthread_getattr_np+0xc0
 	0x7f9744aedc	libBugly.so	javaStaticCall_Thread_CurrentThread+0x80
 	0x7f9744b40c	libBugly.so	javaTheadDump+0x44
 	0x7f9744be40	libBugly.so	getBuglyClassPathPrefix+0x48
 	0x7f9744fd3c	libBugly.so	JNI_OnLoad+0x90
-	0x7f97ecf650	libart.so	_ZN3art9JavaVMExt17LoadNativeLibraryEP7_JNIEnvRK...<REDACTED>...9_+0x858
+	0x7f97ecf650	libart.so	_ZN3art9JavaVMExt17LoadNativeLibrary<REDACTED>...9_+0x858
 	0x7f9bdcb27c	libopenjdkjvm.so	JVM_NativeLoad+0x118
 	0x7204cdd0	boot.oat	oatexec+0x9bdd0
 ```
