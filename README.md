@@ -586,7 +586,7 @@ backtrace:
 
 - `\dxc [sym|addr] [args..]`: Call the target symbol with given args
 
-Find a function to call to:
+Find a function to call to: (e.g. we search for an import in the Gadget)
 ```java
 [0x00000000]> \ii frida-gadget.so~gettimeofday
 0xf40d8590 f gettimeofday /system/lib/libc.so
@@ -604,7 +604,7 @@ Finally we can call the function using the aforementioned pointers. The `dxc` co
 [0x00000000]> \dxc 0xf40d8590 0xebaf6f18 0xebaf70d8
 "0x0"
 ```
-For this specific example, we can use the r2 command `pt` (print timestamp) to verify that the pointer got indeed populated with the timestamp.
+For this specific example, we can use the r2 command `pt` (print timestamp) to verify that the pointer got indeed populated with the timestamp. Hence, we have arbitrary executed code within the process.
 ```java
 [0x00000000]> x 16 @ 0xebaf6f18
 - offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF
