@@ -5,7 +5,7 @@ Before reading this tutorial, it's highly recommended that you first take a look
 
 Android & iOS Connection
 ========================
-Retrieve the device id using `frida-ls-devices` and the name of the app using `frida-ps`. The package name may be preferrable if the display name contains spaces.
+Retrieve the device id using `frida-ls-devices` and the name of the app using `frida-ps`. The package name may be preferable if the display name contains spaces.
 
 ### Attach
 
