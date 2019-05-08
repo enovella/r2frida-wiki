@@ -15,6 +15,11 @@ Attach to a running app using the display name.
 r2 frida://device-id/Snapchat
 ```
 
+Attach to the Frida Gadget:
+```bash
+R2FRIDA_DISABLE_V8=0 r2 frida://usb//Gadget
+```
+
 ### Spawn
 
 Spawn an app using two `//` and the package name.
