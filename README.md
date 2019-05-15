@@ -42,6 +42,21 @@ In order to get the list of commands, you might want to type: `\?`
 
 ![imaing](https://github.com/enovella/r2frida-wiki/blob/master/img/r2frida-android.jpg)
 
+## Version commands
+
+- `?V`: Show target Frida version
+To display the r2 version:
+```java
+[0x00000000]> ?V
+3.6.0-git aka 3.5.0-27-g2bba203eb commit 21781
+```
+
+To display the frida version:
+```java
+[0x00000000]> \?V
+{"version":"12.5.3"}
+```
+
 ## Informative commands (`\i`)
 ```java
 [0x00000000]> \?~^i
