@@ -56,6 +56,8 @@ To display the frida version: (remember that r2frida commands start with `\` or 
 ```java
 [0x00000000]> \?V
 {"version":"12.5.3"}
+[0x00000000]> =!?V
+{"version":"12.5.3"}
 ```
 
 ## Informative commands (`\i`)
