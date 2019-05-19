@@ -38,7 +38,7 @@ r2 frida://spawn/usb//com.android.app
 
 Commands (`\?`)
 ===============
-In order to get the list of commands, you might want to type: `\?`
+In order to get the list of commands, you might want to type: `\?`. Remember that all r2frida commands must start with `\` or `=!`.
 
 ![imaing](https://github.com/enovella/r2frida-wiki/blob/master/img/r2frida-android.jpg)
 
@@ -52,7 +52,7 @@ To display the r2 version:
 3.6.0-git aka 3.5.0-27-g2bba203eb commit 21781
 ```
 
-To display the frida version: (remember that r2frida commands start with `\` or `=!`)
+To display the frida version:
 ```java
 [0x00000000]> \?V
 {"version":"12.5.3"}
