@@ -44,7 +44,7 @@ In order to get the list of commands, you might want to type: `\?`. Remember tha
 
 ## Version commands
 
-- `?V`: Show target Frida version
+- `\?V`: Show target Frida version
 
 To display the r2 version:
 ```java
