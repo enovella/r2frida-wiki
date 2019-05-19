@@ -52,7 +52,7 @@ To display the r2 version:
 3.6.0-git aka 3.5.0-27-g2bba203eb commit 21781
 ```
 
-To display the frida version:
+To display the Frida version:
 ```java
 [0x00000000]> \?V
 {"version":"12.5.3"}
