@@ -17,7 +17,7 @@ r2 frida://device-id/Snapchat
 
 Attach to the Frida Gadget:
 ```bash
-r2 frida://usb/attach//Gadget
+r2 frida://attach/usb//Gadget
 ```
 
 ### Spawn
