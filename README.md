@@ -1,3 +1,6 @@
+THIS WIKI IS NOW MAINTAINED AT https://github.com/nowsecure/r2frida/wiki
+==========================================================================
+
 # r2frida-wiki
 
 Before reading this tutorial, it's highly recommended that you first take a look at the official website of [r2frida](https://github.com/nowsecure/r2frida) to install the tool as well as understand the capabilities of this one.
